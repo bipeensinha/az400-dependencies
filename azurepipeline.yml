@@ -12,23 +12,23 @@ steps:
     displayName: 'Install .NET SDK'
     inputs:
       packageType: 'sdk'
-      version: '8.0'  # Specify the .NET version required
+      version: '8.0.x'  # Specify the .NET version required
       installationPath: $(Agent.ToolsDirectory)/dotnet
 
   - script: |
-      dotnet restore
+      dotnet restore 'path/to/your/solution.sln'
     displayName: 'Restore NuGet Packages'
 
   - script: |
-      dotnet build --configuration $(buildConfiguration)
+      dotnet build 'path/to/your/solution.sln' --configuration $(buildConfiguration)
     displayName: 'Build Solution'
 
   - script: |
-      dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
+      dotnet test 'path/to/your/testproject.csproj' --configuration $(buildConfiguration) --no-build --verbosity normal
     displayName: 'Run Unit Tests'
 
   - script: |
-      dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+      dotnet publish 'path/to/your/project.csproj' --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
     displayName: 'Publish Application'
 
   - task: PublishBuildArtifacts@1
