@@ -1,0 +1,38 @@
+trigger:
+  - main  # Adjust this to your default branch name
+
+pool:
+  vmImage: 'windows-latest'  # Use a Microsoft-hosted Windows agent
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+  - task: UseDotNet@2
+    displayName: 'Install .NET SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '8.0'  # Specify the .NET version required
+      installationPath: $(Agent.ToolsDirectory)/dotnet
+
+  - script: |
+      dotnet restore
+    displayName: 'Restore NuGet Packages'
+
+  - script: |
+      dotnet build --configuration $(buildConfiguration)
+    displayName: 'Build Solution'
+
+  - script: |
+      dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
+    displayName: 'Run Unit Tests'
+
+  - script: |
+      dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+    displayName: 'Publish Application'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory)
+      ArtifactName: 'drop'
+    displayName: 'Publish Artifacts'
