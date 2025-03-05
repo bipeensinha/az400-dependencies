@@ -1,0 +1,36 @@
+dotnet new classlib -n biplibrary
+cd biplibrary
+change class.class
+dotnet build --configuration Release
+dotnet pack --configuration Release --output ./nupkgs
+
+dotnet nuget remove source bipfeed
+
+
+dotnet nuget add source "https://pkgs.dev.azure.com/QASLGKTraining/AZ400-Demo/_packaging/bipfeed/nuget/v3/index.json" --name "bipfeed" --username "any" --password 351GWwzMHc7q96tanOHS68JLtUzG3SQ8oizRSOjqzHWjy5rOcQAxJQQJ99BCACAAAAAAAAAAAAASAZDOuMGy --store-password-in-clear-text
+
+dotnet nuget push ./nupkgs/biplibrary.1.0.0.nupkg --source "https://pkgs.dev.azure.com/QASLGKTraining/AZ400-Demo/_packaging/bipfeed/nuget/v3/index.json" --api-key az --skip-duplicate
+
+dotnet nuget list source
+
+====================
+
+
+dotnet new console -n bipapp
+
+cd bipapp
+
+
+dotnet add package biplibrary --version 1.0.0 --source "https://pkgs.dev.azure.com/QASLGKTraining/AZ400-Demo/_packaging/bipfeed/nuget/v3/index.json"
+
+dotnet nuget update source "bipfeed" --username "any" --password 351GWwzMHc7q96tanOHS68JLtUzG3SQ8oizRSOjqzHWjy5rOcQAxJQQJ99BCACAAAAAAAAAAAAASAZDOuMGy --store-password-in-clear-text
+
+
+Change Program.cs
+dotnet restore
+
+dotnet build
+
+dotnet list package
+
+dotnet run
