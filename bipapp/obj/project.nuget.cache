@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "meOGj+zDIcE=",
+  "success": true,
+  "projectFilePath": "E:\\az204\\Az400\\nuget\\bipapp\\bipapp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\biplibrary\\1.0.0\\biplibrary.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

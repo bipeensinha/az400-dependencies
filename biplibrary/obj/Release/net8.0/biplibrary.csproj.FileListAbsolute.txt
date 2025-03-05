@@ -1,0 +1,11 @@
+E:\az204\Az400\nuget\biplibrary\bin\Release\net8.0\biplibrary.deps.json
+E:\az204\Az400\nuget\biplibrary\bin\Release\net8.0\biplibrary.dll
+E:\az204\Az400\nuget\biplibrary\bin\Release\net8.0\biplibrary.pdb
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\biplibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\biplibrary.AssemblyInfoInputs.cache
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\biplibrary.AssemblyInfo.cs
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\biplibrary.csproj.CoreCompileInputs.cache
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\biplibrary.dll
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\refint\biplibrary.dll
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\biplibrary.pdb
+E:\az204\Az400\nuget\biplibrary\obj\Release\net8.0\ref\biplibrary.dll
